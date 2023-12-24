@@ -23,7 +23,7 @@ const Banner = () => {
       </div>
       <div className='flex flex-col text-white items-center absolute z-30 top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%]'>
         <h1 className='text-center font-semibold text-4xl'>Ideas</h1>
-        <p className='text-center text-lg'>I love to code</p>
+        <p className='text-center text-lg'>Where all our great things begin</p>
       </div>
       <div
         style={{
