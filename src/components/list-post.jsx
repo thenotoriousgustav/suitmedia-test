@@ -91,7 +91,9 @@ export default function ListPost({ posts }) {
                   <CardDescription>
                     {formatDate(post.published_at)}
                   </CardDescription>
-                  <CardTitle>{post.title}</CardTitle>
+                  <CardTitle className='text-ellipsis	line-clamp-3'>
+                    {post.title}
+                  </CardTitle>
                 </CardContent>
               </Card>
             );

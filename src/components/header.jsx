@@ -1,21 +1,24 @@
 'use client';
 
+import { ROUTES_NAV } from '@/constants/constants';
+
 import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
+  const path = usePathname().replace('/', '');
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
@@ -50,52 +53,28 @@ export default function Header() {
     >
       <nav className='container mx-auto py-6 flex justify-between items-center'>
         <Link href='/'>
-          <h1 className='text-2xl font-bold'>SuitMedia Logo</h1>
+          <Image
+            className='h-12 w-auto'
+            src='/logo.png'
+            alt='logo'
+            width='0'
+            height='0'
+            sizes='100vw'
+          />
         </Link>
         <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href='/work' legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Work
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href='/about' legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  About
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href='/services' legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Services
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href='/ideas' legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Ideas
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href='/careers' legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Careers
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href='/contact' legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+          <NavigationMenuList className='space-x-8'>
+            {ROUTES_NAV.map((el) => (
+              <NavigationMenuItem key={el} className='capitalize'>
+                <Link href={el} legacyBehavior passHref>
+                  <NavigationMenuLink
+                    className={el === path ? 'activeNav' : 'nonActiveNav'}
+                  >
+                    {el}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
       </nav>

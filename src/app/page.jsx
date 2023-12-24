@@ -7,9 +7,7 @@ export default async function Homepage() {
 
   return (
     <>
-      <div>
-        <Banner />
-      </div>
+      <Banner />
     </>
   );
 }

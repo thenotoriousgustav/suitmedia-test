@@ -74,3 +74,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply scroll-smooth;
+}
+
+.activeNav {
+  @apply underline decoration-white decoration-4 underline-offset-4 text-white;
+}
+.nonActiveNav {
+  @apply text-white;
+}

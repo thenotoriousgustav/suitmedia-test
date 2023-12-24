@@ -1,5 +1,7 @@
 import Banner from '@/components/banner';
 import ListPost from '@/components/list-post';
+import PaginationControls from '@/components/pagination-controls';
+
 import getPosts from '@/lib/getPosts';
 
 export default async function IdeasPage() {
@@ -9,8 +11,8 @@ export default async function IdeasPage() {
     <>
       <div>
         <Banner />
-
         <ListPost posts={posts} />
+        <PaginationControls />
       </div>
     </>
   );

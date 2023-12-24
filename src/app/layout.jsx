@@ -1,12 +1,12 @@
 import { Inter } from 'next/font/google';
-import './globals.css';
+import '../app/styles/globals.css';
 import Header from '@/components/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'SuitMedia',
-  description: 'Suitmedia test front end',
+  title: 'SuitMedia - Gustam',
+  description: 'Suitmedia test front end Gustam Rheza Mahendra',
 };
 
 export default function RootLayout({ children }) {
@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
           <Header />
         </header>
         <main>{children}</main>
+        <footer></footer>
       </body>
     </html>
   );
